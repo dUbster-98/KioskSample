@@ -1,0 +1,19 @@
+﻿<Window x:Class="KioskSample.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="1080" Width="1920" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <!--  키오스크 화면 영역  -->
+            <ColumnDefinition Width="640" />
+            <!--  간격  -->
+            <ColumnDefinition Width="10" />
+            <!--  관리자 화면 영역  -->
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ContentControl prism:RegionManager.RegionName="KioskContentRegion" />
+        <ContentControl Grid.Column="2" prism:RegionManager.RegionName="ManagerContentRegion" />
+    </Grid>
+</Window>
