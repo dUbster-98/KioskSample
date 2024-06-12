@@ -3,16 +3,18 @@ using KioskSample.Models;
 using Prism.Commands;
 using Prism.Ioc;
 using Prism.Mvvm;
+using Prism.Navigation;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace KioskSample.Bases
 {
     //INavigationAware를 추가해서 RegionManager.RequestNavigate() 를 이용해서 네비게이션 시켰을 때 실행할 내용을 추가할 수 있도록 작업 했습니다.
-    public class ViewModelBase : BindableBase, INavigationAware
+    public class ViewModelBase : BindableBase, INavigationAware, IDestructible
     {
         protected IContainerProvider ContainerProvider;
         protected IRegionManager RegionManager;
@@ -25,8 +27,11 @@ namespace KioskSample.Bases
             set { SetProperty(ref _appContext, value); }
         }
 
+        public DispatcherTimer Timer;
+
         public ICommand HomeCommand { get; set; }   
 
+        public ICommand GoBackCommand { get; set; } 
 
         private bool _isBusy;
         public bool IsBusy
@@ -51,6 +56,7 @@ namespace KioskSample.Bases
         private void Init()
         {
             HomeCommand = new DelegateCommand<string>(OnHome);
+            GoBackCommand = new DelegateCommand<string>(OnGoBack);
         }
 
         private void OnHome(string viewType)
@@ -60,6 +66,21 @@ namespace KioskSample.Bases
                 return;
             }
             ClearAppContextAndGoHome();
+        }
+
+        private void OnGoBack(string viewType)
+        {
+            if (viewType != "kiosk")
+            {
+                return;
+            }
+
+            var regionJournal = RegionManager.Regions["KioskContentRegion"].NavigationService.Journal;
+            if (regionJournal != null && regionJournal.CanGoBack)
+            {
+                regionJournal.GoBack();
+                //NavigationService.Journal 개체를 확인하면 뒤로 가기가 가능한지 아닌지 확인 할 수 있습니다.
+            }
         }
 
         protected void ClearAppContextAndGoHome()

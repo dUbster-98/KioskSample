@@ -67,7 +67,7 @@
                 Content="장애인 모드" />
         </Grid>
 
-        <Grid Visibility="{Binding AppContext.IsDisableUI, Converter={StaticResource BoolToVisibilityConverter}}">
+        <Grid Visibility="{Binding AppContext.IsDisabledUI, Converter={StaticResource BoolToVisibilityConverter}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="0.7*" />

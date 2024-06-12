@@ -19,5 +19,6 @@ namespace KioskSample.Models
 
         bool IsEatIn { get; set; }
 
+        Order CurrentOrder { get; set; }
     }
 }

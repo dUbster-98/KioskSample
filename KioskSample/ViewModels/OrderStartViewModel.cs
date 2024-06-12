@@ -13,8 +13,6 @@ namespace KioskSample.ViewModels
 {
     public class OrderStartViewModel : ViewModelBase
     {
-        private DispatcherTimer _timer;
-
         public ICommand OrderTypeCommand { get; set; }
         public ICommand DisabledCommand { get; set; }   
 
@@ -30,10 +28,7 @@ namespace KioskSample.ViewModels
         private void Init()
         {
             OrderTypeCommand = new DelegateCommand<string>(OnOrderType);
-            DisabledCommand = new DelegateCommand<string>(OnDisabled);
-
-            _timer = new DispatcherTimer(TimeSpan.FromSeconds(30),
-                DispatcherPriority.Normal, TimerTick, App.Current.Dispatcher);        
+            DisabledCommand = new DelegateCommand<string>(OnDisabled);    
         }
 
         private void TimerTick(object sender, EventArgs e)
@@ -55,8 +50,11 @@ namespace KioskSample.ViewModels
         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
             AppContext.KioskStatus = Commons.StatusEnum.OrderStart;
-            _timer.Stop();
-            _timer.Start();
+
+            Timer = new DispatcherTimer(TimeSpan.FromSeconds(30),
+                        DispatcherPriority.Normal, TimerTick, App.Current.Dispatcher);
+
+            Timer.Start();
         }
 
         public override void OnNavigatedFrom(NavigationContext navigationContext)
@@ -71,8 +69,12 @@ namespace KioskSample.ViewModels
 
         public void DestroyTimer()
         {
-            _timer.Stop();
-            _timer = null;
+            if (Timer == null)
+            {
+                return;
+            }
+            Timer.Stop();
+            Timer = null;
         }
 
     }

@@ -39,6 +39,13 @@ namespace KioskSample.Models
             set { SetProperty(ref _isEatIn, value); }
         }
 
+        private Order _currentOrder;
+        public Order CurrentOrder
+        {
+            get { return _currentOrder; }
+            set { SetProperty(ref _currentOrder, value); }
+        }
+
         public AppContext()
         {
 
