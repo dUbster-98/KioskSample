@@ -36,3 +36,7 @@ C:\Users\Kim.Seonghyeon\source\repos\KioskSample\KioskSample\obj\Debug\net6.0-wi
 C:\Users\Kim.Seonghyeon\source\repos\KioskSample\KioskSample\obj\Debug\net6.0-windows\Styles\_Converters.baml
 C:\Users\Kim.Seonghyeon\source\repos\KioskSample\KioskSample\obj\Debug\net6.0-windows\Views\SelectMenu.g.cs
 C:\Users\Kim.Seonghyeon\source\repos\KioskSample\KioskSample\obj\Debug\net6.0-windows\Views\SelectMenu.baml
+C:\Users\Kim.Seonghyeon\source\repos\KioskSample\KioskSample\obj\Debug\net6.0-windows\Views\Payment.g.cs
+C:\Users\Kim.Seonghyeon\source\repos\KioskSample\KioskSample\obj\Debug\net6.0-windows\Views\Payment.baml
+C:\Users\Kim.Seonghyeon\source\repos\KioskSample\KioskSample\obj\Debug\net6.0-windows\Views\Deadline.g.cs
+C:\Users\Kim.Seonghyeon\source\repos\KioskSample\KioskSample\obj\Debug\net6.0-windows\Views\Deadline.baml

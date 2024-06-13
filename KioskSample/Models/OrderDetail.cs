@@ -29,19 +29,21 @@ namespace KioskSample.Models
         public int UnitPrice
         {
             get { return _unitPrice; }
-            set { SetProperty(ref _unitPrice, value); }
+            set { SetProperty(ref _unitPrice, value, () => RaisePropertyChanged(nameof(Amount))); }
         }
+        // 수량이나 단가가 변경되면 RaisePropertyChanged() 메서드를 이용해서, Amount 프로퍼티가 변경되었음을 알림
+        // RaisePropertyChanged()는 Prism에서 제공하는 강제로 프로퍼티 체인지 이벤트를 발생시켜주는 메서드입니다.
+
         private int _quantity;
         public int Quantity
         {
             get { return _quantity; }
-            set { SetProperty(ref _quantity, value); }
+            set { SetProperty(ref _quantity, value, () => RaisePropertyChanged(nameof(Amount))); }
         }
-        private int _amount;
+
         public int Amount
         {
-            get { return _amount; }
-            set { SetProperty(ref _amount, value); }
+            get { return Quantity * UnitPrice; }
         }
     }
 }

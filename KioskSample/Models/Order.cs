@@ -24,7 +24,19 @@ namespace KioskSample.Models
         public int TotalAmount
         {
             get { return _totalAmount;}
-            set { SetProperty(ref _totalAmount, value); }
+            set { SetProperty(ref _totalAmount, value, () => RaisePropertyChanged(nameof(Change))); }
+        }
+
+        private int _receivedAmount;
+        public int ReceivedAmount
+        {
+            get { return _receivedAmount; }
+            set { SetProperty(ref _receivedAmount, value, () => RaisePropertyChanged(nameof(Change))); }
+        }
+
+        public int Change
+        {
+            get { return ReceivedAmount - TotalAmount < 0 ? 0 : ReceivedAmount - TotalAmount; }
         }
 
         public IList<OrderDetail> Items { get; set; } = new ObservableCollection<OrderDetail>();
@@ -34,6 +46,12 @@ namespace KioskSample.Models
             TotalQuantity = Items.Sum(x => x.Quantity);
             TotalAmount = Items.Sum(x => x.Amount);
         }
+
+        public DateTime? OrderDatetime { get; set; }
+
+        public bool IsDeadline { get; set; }
+
+        public DateTime? DeadlineDatetime { get; set; }
 
     }
 }

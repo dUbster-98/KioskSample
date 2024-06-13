@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\Deadline.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\KioskIntro.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,12 +19,18 @@
     <Compile Update="Views\OrderStart.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Payment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\SelectMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Styles\_Converters.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Deadline.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\KioskIntro.xaml">
@@ -34,6 +43,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\OrderStart.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Payment.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SelectMenu.xaml">

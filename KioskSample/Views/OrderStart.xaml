@@ -11,7 +11,8 @@
              d:DesignHeight="1080"
              d:DesignWidth="640"
              d:DataContext="{d:DesignInstance vm:OrderStartViewModel, 
-                                              IsDesignTimeCreatable=True}">
+                                              IsDesignTimeCreatable=True}"
+             FontSize="20">
     <Grid>
         <Grid Visibility="{Binding AppContext.IsDisabledUI,
             Converter={StaticResource InverterBoolToVisibilityConverter}}">

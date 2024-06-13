@@ -46,6 +46,8 @@ namespace KioskSample.Models
             set { SetProperty(ref _currentOrder, value); }
         }
 
+        public IList<Order> Orders { get; set; } = new List<Order>();
+
         public AppContext()
         {
 

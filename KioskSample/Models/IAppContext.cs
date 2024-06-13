@@ -20,5 +20,7 @@ namespace KioskSample.Models
         bool IsEatIn { get; set; }
 
         Order CurrentOrder { get; set; }
+
+        IList<Order> Orders { get; set; }
     }
 }

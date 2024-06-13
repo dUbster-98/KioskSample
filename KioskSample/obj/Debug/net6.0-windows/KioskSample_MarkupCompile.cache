@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Kim.Seonghyeon\source\repos\KioskSample\KioskSample\App.xaml
-6-1771108624
+8853821330
 
-201707051569
+251468126347
 199922997800
-Styles\_Converters.xaml;Views\KioskIntro.xaml;Views\MainWindow.xaml;Views\ManagerLogin.xaml;Views\OrderStart.xaml;Views\SelectMenu.xaml;
+Styles\_Converters.xaml;Views\Deadline.xaml;Views\KioskIntro.xaml;Views\MainWindow.xaml;Views\ManagerLogin.xaml;Views\OrderStart.xaml;Views\Payment.xaml;Views\SelectMenu.xaml;
 
 False
 

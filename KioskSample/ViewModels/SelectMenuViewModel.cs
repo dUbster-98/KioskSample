@@ -62,10 +62,6 @@ namespace KioskSample.ViewModels
                 new Product{ Category = ProductCategory.Coffee, Name = "아메리카노", Price = 1500 },
                 new Product{ Category = ProductCategory.Coffee, Name = "아이스 바닐라 라떼", Price = 3500 },
                 new Product{ Category = ProductCategory.Coffee, Name = "바닐라 라떼", Price = 3500 },
-                new Product{ Category = ProductCategory.Coffee, Name = "페이지2-1", Price = 1500 },
-                new Product{ Category = ProductCategory.Coffee, Name = "페이지2-2", Price = 1500 },
-                new Product{ Category = ProductCategory.Coffee, Name = "페이지2-3", Price = 3500 },
-                new Product{ Category = ProductCategory.Coffee, Name = "페이지2-4", Price = 3500 },
             };
         }
 
@@ -115,8 +111,7 @@ namespace KioskSample.ViewModels
                         OrderId = AppContext.CurrentOrder.OrderId,
                         ProductName = product.Name,
                         UnitPrice = product.Price,
-                        Quantity = 1,
-                        Amount = product.Price * 1
+                        Quantity = 1
                     });
                 AppContext.CurrentOrder.UpdateProperties();
             }
@@ -182,7 +177,7 @@ namespace KioskSample.ViewModels
         private void CreateProducts()
         {
             // 외부 리소스 사용, 객체 초기화를 위해 기본 생성자와 같이 실행
-            Coffees = new List<Product>
+            _allCoffees = new List<Product>
             {
                 new Product{ Category = ProductCategory.Coffee, Name = "아이스 아메리카노", Price = 1500, ImageUri = new Uri("pack://application:,,,/Assets/Images/delicious-ice-cream-in-studio.jpg") },
                 new Product{ Category = ProductCategory.Coffee, Name = "아메리카노", Price = 1500, ImageUri = new Uri("pack://application:,,,/Assets/Images/delicious-ice-cream-in-studio.jpg") },

@@ -25,6 +25,7 @@ namespace KioskSample
             containerRegistry.RegisterForNavigation<ManagerLogin>();
             containerRegistry.RegisterForNavigation<OrderStart>();
             containerRegistry.RegisterForNavigation<SelectMenu>();
+            containerRegistry.RegisterForNavigation<Payment>();
         }
     }
 }
