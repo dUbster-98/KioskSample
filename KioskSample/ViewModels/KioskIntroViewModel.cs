@@ -1,5 +1,6 @@
 ﻿using DryIoc;
 using KioskSample.Bases;
+using KioskSample.Models;
 using Prism.Commands;
 using Prism.Ioc;
 using Prism.Mvvm;
@@ -35,10 +36,15 @@ namespace KioskSample.ViewModels
             RegionManager.RequestNavigate("KioskContentRegion", "OrderStart");
         }
 
+        public override void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            AppContext.CurrentOrder = new Order();
+            AppContext.CurrentOrder.OrderId = Guid.NewGuid();
+        }
+
         public override void OnNavigatedFrom(NavigationContext navigationContext)
         {
             //동영상 재생이 xaml에서 자체적으로 동작하고 있기 때문에 OnNavigatedFrom에서 중지하는 코드를 추가하지 않았습니다. 
-
         }
     }
 }

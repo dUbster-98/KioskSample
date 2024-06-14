@@ -1,6 +1,7 @@
 ﻿using KioskSample.Commons;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace KioskSample.Models
 
         Order CurrentOrder { get; set; }
 
-        IList<Order> Orders { get; set; }
+        //IList<Order> Orders { get; set; }
+
+        ObservableCollection<Order> Orders { get; set; }
     }
 }

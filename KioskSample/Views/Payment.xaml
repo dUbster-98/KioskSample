@@ -33,7 +33,7 @@
             Margin="10"
             Padding="10"
             HorizontalAlignment="Right"
-            Command="{Binding GoBackCommand}"
+            Command="{Binding HomeCommand}"
             CommandParameter="kiosk"
             Content="처음으로"/>
 

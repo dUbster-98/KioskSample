@@ -65,6 +65,8 @@ namespace KioskSample.Bases
             {
                 return;
             }
+            AppContext.CurrentOrder = new Order();
+            AppContext.CurrentOrder.OrderId = Guid.NewGuid();
             ClearAppContextAndGoHome();
         }
 
@@ -94,6 +96,19 @@ namespace KioskSample.Bases
             }
             region.RemoveAll();
             region.RequestNavigate("KioskIntro");
+        }
+
+        protected void LogoutManager()
+        {
+            AppContext.IsLogin = false;
+
+            var region = RegionManager.Regions["ManagerContentRegion"];
+            if (region == null)
+            {
+                return;
+            }
+            region.RemoveAll();
+            region.RequestNavigate("ManagerLogin");
         }
 
         //OnNavigatedTo, IsNavigationTarget, OnNavigatedFrom 메서드를 뷰모델에서 사용할 수 있도록 virtual 키워드를 추가했습니다.

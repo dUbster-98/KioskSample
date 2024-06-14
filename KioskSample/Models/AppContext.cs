@@ -3,6 +3,7 @@ using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace KioskSample.Models
@@ -46,7 +47,9 @@ namespace KioskSample.Models
             set { SetProperty(ref _currentOrder, value); }
         }
 
-        public IList<Order> Orders { get; set; } = new List<Order>();
+        //public IList<Order> Orders { get; set; } = new List<Order>();
+
+        public ObservableCollection<Order> Orders { get; set; } = new ObservableCollection<Order>();
 
         public AppContext()
         {

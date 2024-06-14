@@ -83,6 +83,9 @@ namespace KioskSample.ViewModels
             AddCommand = new DelegateCommand<OrderDetail>(OnAdd);
             RemoveCommand = new DelegateCommand<OrderDetail>(OnRemove);
 
+            AppContext.CurrentOrder = new Order();
+            AppContext.CurrentOrder.OrderId = Guid.NewGuid();
+
             // 전체 페이지를 계산
             _totalPages = _allCoffees.Count / _pageSize - 1;
             DisplayProducts(CurrentPage);
@@ -113,8 +116,8 @@ namespace KioskSample.ViewModels
                         UnitPrice = product.Price,
                         Quantity = 1
                     });
-                AppContext.CurrentOrder.UpdateProperties();
             }
+            AppContext.CurrentOrder.UpdateProperties();
         }
 
         private void OnPayment()
@@ -170,8 +173,6 @@ namespace KioskSample.ViewModels
         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
             AppContext.KioskStatus = StatusEnum.SelectMenu;
-            AppContext.CurrentOrder = new Order();
-            AppContext.CurrentOrder.OrderId = Guid.NewGuid();
         }
 
         private void CreateProducts()

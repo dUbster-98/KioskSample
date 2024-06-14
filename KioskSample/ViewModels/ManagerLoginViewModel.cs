@@ -47,7 +47,8 @@ namespace KioskSample.ViewModels
             {
                 return;
             }
-            RegionManager.RequestNavigate("ManagerContentRegin", "Deadline");
+            AppContext.IsLogin = true;
+            RegionManager.RequestNavigate("ManagerContentRegion", "Deadline");
         }
     }
 }

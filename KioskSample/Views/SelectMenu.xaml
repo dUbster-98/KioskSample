@@ -20,7 +20,7 @@
                 <Setter.Value>
                     <DataTemplate>
                         <Border>
-                            <TextBlock Padding="20" Text="{Binding}"/>
+                            <TextBlock Padding="20,10" Text="{Binding}"/>
                         </Border>
                     </DataTemplate>
                 </Setter.Value>
@@ -57,7 +57,7 @@
             Command="{Binding HomeCommand}"
             CommandParameter="kiosk"
             Content="처음으로" Click="Button_Click"/>
-        
+
         <TabControl Grid.Row="1">
             <TabItem Header="커피">
                 <Grid>

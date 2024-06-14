@@ -23,7 +23,7 @@ namespace KioskSample.ViewModels
         {
             var regionManager = ContainerProvider.Resolve<IRegionManager>();
             regionManager.RegisterViewWithRegion("KioskContentRegion", "KioskIntro");
-            regionManager.RegisterViewWithRegion("ManagerContentRegin", "ManagerLogin");
+            regionManager.RegisterViewWithRegion("ManagerContentRegion", "ManagerLogin");
         }
     }
 }

@@ -3,9 +3,11 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 
 namespace KioskSample.Models
 {
@@ -49,9 +51,18 @@ namespace KioskSample.Models
 
         public DateTime? OrderDatetime { get; set; }
 
-        public bool IsDeadline { get; set; }
+        private bool _isDeadline;
+        public bool IsDeadline 
+        { 
+            get => _isDeadline; 
+            set => SetProperty(ref _isDeadline, value); 
+        }
 
-        public DateTime? DeadlineDatetime { get; set; }
-
+        private DateTime? _deadlineDatetime;
+        public DateTime? DeadlineDatetime 
+        {
+            get => _deadlineDatetime;
+            set => SetProperty(ref _deadlineDatetime, value); 
+        }
     }
 }
